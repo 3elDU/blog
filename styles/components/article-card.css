@@ -1,0 +1,27 @@
+.article-card {
+  padding: 0.5rem;
+  background: var(--elevation-1-rgb);
+
+  & > p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    font-size: small;
+  }
+
+  & > .title-and-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    & > h2 {
+      margin: 0;
+    }
+
+    & > p {
+      margin: 0;
+      font-size: small;
+      font-weight: 300;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+
+{% if (not page.url.endsWith(".css")) %}
+<div class="article-content-wrapper">
+  <main class="article-content">
+    <section class="article-title">
+      <h1>{{ title }}</h1>
+      <date datetime="{{ page.date }}">
+        {{ page.date | formatDate }}
+      </date>
+    </section>
+    {{ content | safe }}
+  </main>
+</div>
+{% else %}
+{{ content | safe }}
+{% endif %}

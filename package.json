@@ -1,0 +1,17 @@
+{
+  "name": "blog",
+  "type": "module",
+  "private": true,
+  "main": "index.js",
+  "author": "petafloppa",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.29.1"
+  }
+}

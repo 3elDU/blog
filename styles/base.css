@@ -1,0 +1,34 @@
+/* Remove all default margins, and use box-sizing */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+
+  background: var(--body-background-rgb);
+  color: var(--body-foreground-rgb);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Use monospace font */
+:root {
+  font-family: "Cascadia Code", "SF Mono", monospace;
+}
+
+/* Color visited links the same */
+a,
+a:visited {
+  color: inherit;
+}

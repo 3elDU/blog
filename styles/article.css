@@ -1,0 +1,35 @@
+.article-content-wrapper {
+  width: 100%;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-content {
+  width: 100%;
+  max-width: 720px;
+
+  & :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  & :is(p, ul) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.article-title {
+  margin-bottom: 2rem;
+
+  & > h1 {
+    margin: 0;
+  }
+  & > date {
+    font-size: small;
+  }
+}
