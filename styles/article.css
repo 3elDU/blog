@@ -35,7 +35,7 @@
   }
 
   & > :not(.article-title) {
-    margin-top: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
   }
 }
