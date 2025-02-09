@@ -1,0 +1,17 @@
+:root {
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --article-max-width: 720px;
+
+  --font-xs: 75%;
+  --font-sm: 85%;
+  --font-md: 100%;
+  --font-lg: 125%;
+  --font-xl: 150%;
+  --font-xxl: 200%;
+  --font-display: 300%;
+}

@@ -5,11 +5,21 @@
     </li>
 
     <li>
-      <a href="/">About</a>
+      <a href="/"
+        {% if page.url == "/" %}
+          aria-current="page"
+          class="current-page"
+        {% endif %}
+      >About</a>
     </li>
 
     <li>
-      <a href="/articles">Articles</a>
+      <a href="/articles"
+        {% if page.url.startsWith("/articles") %}
+          aria-current="page"
+          class="current-page"
+        {% endif %}
+      >Articles</a>
     </li>
   </ul>
 </nav>

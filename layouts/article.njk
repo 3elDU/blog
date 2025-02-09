@@ -7,9 +7,12 @@ layout: base.njk
   <main class="article-content">
     <section class="article-title">
       <h1>{{ title }}</h1>
-      <date datetime="{{ page.date }}">
-        {{ page.date | formatDate }}
-      </date>
+      <p class="article-written">
+        Written on
+        <date datetime="{{ page.date }}">
+          {{ page.date | formatDate }}
+        </date>
+      </p>
     </section>
     {{ content | safe }}
   </main>

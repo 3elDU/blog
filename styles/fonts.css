@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "DM Sans";
+  font-optical-sizing: auto;
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  src: url(/fonts/DMSans-Variable.woff2) format(woff2);
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-optical-sizing: auto;
+  font-display: swap;
+  font-stretch: 100%;
+  font-weight: 100 900;
+  src: url(/fonts/Roboto-Variable.woff2) format(woff2);
+}
+
+:root {
+  --family-text: "Roboto";
+  --family-display: "DM Sans";
+
+  font-family: var(--family-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--family-display);
+}

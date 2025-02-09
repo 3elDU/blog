@@ -19,12 +19,7 @@ body {
 body {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Use monospace font */
-:root {
-  font-family: "Cascadia Code", "SF Mono", monospace;
+  gap: var(--space-lg);
 }
 
 /* Color visited links the same */

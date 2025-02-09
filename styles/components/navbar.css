@@ -1,14 +1,9 @@
 #navbar {
   position: sticky;
   top: 0;
-
   width: 100%;
-  height: 64px;
-
   background: var(--background-navbar-rgb);
-
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: var(--space-lg);
 
   & > ul {
     list-style: none;
@@ -18,6 +13,32 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-md);
   }
+
+  & h1 {
+    font-size: var(--font-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  #navbar > ul {
+    flex-wrap: wrap;
+  }
+  #navbar > ul > li:first-child {
+    width: 100%;
+    font-size: var(--font-xl);
+  }
+  #navbar li:nth-child(2) {
+  }
+}
+
+#navbar a {
+  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-md);
+  border-radius: var(--space-sm);
+  text-decoration: none;
+}
+
+#navbar .current-page {
+  background: var(--elevation-2-rgb);
 }

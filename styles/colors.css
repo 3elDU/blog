@@ -6,6 +6,7 @@
 
   --body-background: var(--elevation-0);
   --body-foreground: 0, 0, 0;
+  --body-foreground-subtext: 64, 64, 64;
   --background-navbar: var(--elevation-1);
 
   --elevation-0-rgb: rgb(var(--elevation-0));
@@ -14,6 +15,7 @@
   --elevation-3-rgb: rgb(var(--elevation-3));
   --body-background-rgb: rgb(var(--body-background));
   --body-foreground-rgb: rgb(var(--body-foreground));
+  --body-foreground-subtext-rgb: rgb(var(--body-foreground-subtext));
   --background-navbar-rgb: rgb(var(--background-navbar));
 }
 
@@ -25,5 +27,6 @@
     --elevation-3: 60, 60, 60;
 
     --body-foreground: 255, 255, 255;
+    --body-foreground-subtext: 191, 191, 191;
   }
 }
