@@ -1,0 +1,7 @@
+.article-tag {
+  border-radius: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-sm);
+  background-color: var(--elevation-1-rgb);
+  min-width: var(--space-xl);
+  text-align: center;
+}

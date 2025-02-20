@@ -11,7 +11,7 @@ My name is Zakhar or petafloppa, I am a full stack developer, occasionally jumpi
 You may also like to check other places of mine:
 
 - [My web-site](https://petafloppa.cc)
-- [GitHub](https://petafloppa.cc)
+- [GitHub](https://github.com/3elDU)
 - [Forgejo (self-hosted)](https://git.petafloppa.cc)
 
 # Latest articles

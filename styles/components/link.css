@@ -1,0 +1,10 @@
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+
+  transition: text-decoration-thickness var(--transition-fast);
+
+  &:hover {
+    text-decoration-thickness: 3px;
+  }
+}

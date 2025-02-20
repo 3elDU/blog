@@ -11,16 +11,26 @@
 }
 
 .article-title {
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-lg);
 
   & > h1 {
     font-size: var(--font-display);
     font-weight: 700;
+    line-height: 1.1;
+    text-wrap: balance;
   }
   & > .article-written {
     font-size: small;
     color: var(--body-foreground-subtext-rgb);
   }
+}
+
+.article-tags {
+  margin-top: var(--space-sm);
+
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 .article-content {
@@ -32,6 +42,11 @@
   & > :is(h1, h2, h3, h4, h5, h6) {
     margin-top: var(--space-lg);
     margin-bottom: var(--space-lg);
+  }
+
+  & > blockquote {
+    padding-left: var(--space-md);
+    border-left: var(--space-xs) solid var(--body-foreground-rgb);
   }
 
   & > :not(.article-title) {

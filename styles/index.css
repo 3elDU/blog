@@ -1,8 +1,9 @@
-@layer fonts, colors, spacing, base, components;
+@layer fonts, variables, base, components;
 
 @import "./fonts.css" layer(fonts);
-@import "./colors.css" layer(colors);
-@import "./spacing.css" layer(spacing);
+@import "./colors.css" layer(variables);
+@import "./spacing.css" layer(variables);
+@import "./transitions.css" layer(variables);
 @import "./base.css" layer(base);
 @import "./article.css" layer(base);
 @import "./components/index.css" layer(components);

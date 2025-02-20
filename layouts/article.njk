@@ -13,6 +13,13 @@ layout: base.njk
           {{ page.date | formatDate }}
         </date>
       </p>
+      <p class="article-tags">
+        {% for tag in tags %}
+        <span class="article-tag">
+          {{ tag }}
+        </span>
+        {% endfor %}
+      </p>
     </section>
     {{ content | safe }}
   </main>
