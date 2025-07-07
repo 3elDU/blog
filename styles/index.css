@@ -2,7 +2,7 @@
 
 @import "./fonts.css" layer(fonts);
 @import "./colors.css" layer(variables);
-@import "./spacing.css" layer(variables);
+@import "./sizing.css" layer(variables);
 @import "./transitions.css" layer(variables);
 @import "./base.css" layer(base);
 @import "./article.css" layer(base);

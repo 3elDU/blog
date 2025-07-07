@@ -5,6 +5,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.setLayoutsDirectory("layouts");
   eleventyConfig.setIncludesDirectory("components");
   eleventyConfig.addPassthroughCopy("fonts");
+  eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.setOutputDirectory("dist");
 
   /** Filter to format date as "Month Year", for example "February 2025" */

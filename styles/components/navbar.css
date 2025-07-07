@@ -1,42 +1,37 @@
 #navbar {
-  width: 100%;
-  background: var(--background-navbar-rgb);
-  padding: var(--space-lg);
+  padding: var(--size-lg);
+  list-style: none;
 
-  & > ul {
-    list-style: none;
-
-    height: 100%;
-
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: var(--space-md);
-  }
-
-  & h1 {
-    font-size: var(--font-lg);
-  }
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: var(--size-md);
+  flex-wrap: wrap;
 }
 
+#navbar-website-title {
+  font-size: var(--font-xl);
+}
+
+/* Vertical navbar layour for mobile screens */
 @media (max-width: 480px) {
-  #navbar > ul {
-    flex-wrap: wrap;
+  #navbar {
+    justify-content: left;
   }
-  #navbar > ul > li:first-child {
+
+  /* Make the title span the whole width */
+  #navbar li:first-child {
     width: 100%;
-    font-size: var(--font-xl);
-  }
-  #navbar li:nth-child(2) {
   }
 }
 
 #navbar a {
-  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-md);
-  border-radius: var(--space-sm);
+  display: inline-block;
+  padding: var(--size-sm) var(--size-md) var(--size-sm) var(--size-md);
+  border-radius: var(--size-sm);
   text-decoration: none;
 }
 
 #navbar .current-page {
-  background: var(--elevation-2-rgb);
+  background: var(--elevation-low-rgb);
 }

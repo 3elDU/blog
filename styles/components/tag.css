@@ -1,7 +1,7 @@
 .article-tag {
-  border-radius: var(--space-sm);
-  padding: var(--space-xs) var(--space-sm) var(--space-xs) var(--space-sm);
-  background-color: var(--elevation-1-rgb);
-  min-width: var(--space-xl);
+  border-radius: var(--size-sm);
+  padding: var(--size-xs) var(--size-sm) var(--size-xs) var(--size-sm);
+  background-color: var(--elevation-low-rgb);
+  min-width: var(--size-xl);
   text-align: center;
 }

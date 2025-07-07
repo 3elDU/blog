@@ -1,0 +1,21 @@
+#footer-container {
+  padding: var(--size-lg);
+  display: flex;
+  justify-content: center;
+}
+
+#footer {
+  width: 100%;
+  max-width: var(--article-max-width);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-sm);
+}
+
+#footer hr {
+  flex: 1;
+  max-width: calc(var(--article-max-width) / 2.5);
+  color: var(--elevation-medium-rgb);
+}

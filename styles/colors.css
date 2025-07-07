@@ -1,32 +1,55 @@
 :root {
-  --elevation-0: 255, 255, 255;
-  --elevation-1: 236, 236, 236;
-  --elevation-2: 216, 216, 216;
-  --elevation-3: 196, 196, 196;
+  --tint-color: #ed872d;
+  --tint-percentage: 15%;
 
-  --body-background: var(--elevation-0);
-  --body-foreground: 0, 0, 0;
-  --body-foreground-subtext: 64, 64, 64;
-  --background-navbar: var(--elevation-1);
+  --elevation-none: 255, 255, 255;
+  --elevation-low: 236, 236, 236;
+  --elevation-medium: 216, 216, 216;
+  --elevation-high: 196, 196, 196;
+  /* muted text */
+  --elevation-muted: 64, 64, 64;
+  /* main text color */
+  --elevation-max: 16, 16, 16;
 
-  --elevation-0-rgb: rgb(var(--elevation-0));
-  --elevation-1-rgb: rgb(var(--elevation-1));
-  --elevation-2-rgb: rgb(var(--elevation-2));
-  --elevation-3-rgb: rgb(var(--elevation-3));
-  --body-background-rgb: rgb(var(--body-background));
-  --body-foreground-rgb: rgb(var(--body-foreground));
-  --body-foreground-subtext-rgb: rgb(var(--body-foreground-subtext));
-  --background-navbar-rgb: rgb(var(--background-navbar));
+  --elevation-none-rgb: color-mix(
+    in oklab,
+    rgb(var(--elevation-none)),
+    var(--tint-color) var(--tint-percentage)
+  );
+  --elevation-low-rgb: color-mix(
+    in oklab,
+    rgb(var(--elevation-low)),
+    var(--tint-color) var(--tint-percentage)
+  );
+  --elevation-medium-rgb: color-mix(
+    in oklab,
+    rgb(var(--elevation-medium)),
+    var(--tint-color) var(--tint-percentage)
+  );
+  --elevation-high-rgb: color-mix(
+    in oklab,
+    rgb(var(--elevation-high)),
+    var(--tint-color) var(--tint-percentage)
+  );
+  --elevation-muted-rgb: color-mix(
+    in oklab,
+    rgb(var(--elevation-muted)),
+    var(--tint-color) var(--tint-percentage)
+  );
+  --elevation-max-rgb: color-mix(
+    in oklab,
+    rgb(var(--elevation-max)),
+    var(--tint-color) var(--tint-percentage)
+  );
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --elevation-0: 0, 0, 0;
-    --elevation-1: 20, 20, 20;
-    --elevation-2: 40, 40, 40;
-    --elevation-3: 60, 60, 60;
-
-    --body-foreground: 255, 255, 255;
-    --body-foreground-subtext: 191, 191, 191;
+    --elevation-none: 16, 16, 16;
+    --elevation-low: 50, 50, 50;
+    --elevation-medium: 100, 100, 100;
+    --elevation-high: 150, 150, 150;
+    --elevation-max: 255, 255, 255;
+    --elevation-muted: 207, 207, 207;
   }
 }

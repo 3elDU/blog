@@ -1,11 +1,11 @@
 :root {
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
+  --size-xs: 6px;
+  --size-sm: 12px;
+  --size-md: 16px;
+  --size-lg: 24px;
+  --size-xl: 32px;
 
-  --article-max-width: 720px;
+  --article-max-width: 80ch;
 
   --font-xs: 75%;
   --font-sm: 85%;

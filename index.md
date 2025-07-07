@@ -12,7 +12,11 @@ You may also like to check other places of mine:
 
 - [My web-site](https://petafloppa.cc)
 - [GitHub](https://github.com/3elDU)
-- [Forgejo (self-hosted)](https://git.petafloppa.cc)
+
+# Self hosted
+
+Currently, I do not self-host as much as I've wanted to. It's mostly private services for myself.<br>
+I wish to populate this section in the future.
 
 # Latest articles
 
