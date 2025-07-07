@@ -7,17 +7,20 @@ title: petafloppa's blog
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <link rel="icon" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="/styles/index.css" />
+    <script src="https://stat.petafloppa.cc/stat.js" async></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="{{ eleventy.generator }}" />
     <title>{{ title }}</title>
-    <link rel="icon" href="/assets/favicon.png" />
-    <link rel="stylesheet" href="/styles/index.css" />
+
     {% if css %}
     <!-- Per-page CSS -->
     {% for stylesheet in css %}
     <link rel="stylesheet" href="{{ stylesheet }}" />
     {% endfor %} {% endif %}
-    <script src="https://stat.petafloppa.cc/stat.js"></script>
   </head>
   <body>
     {% include "navbar.njk" %}

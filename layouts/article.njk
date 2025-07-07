@@ -6,10 +6,10 @@ layout: base.njk
 <div id="article-content-wrapper">
   <main id="article">
     <section id="article-heading">
-      <h1>{{ title }}</h1>
+      <h2>{{ title }}</h2>
       <p class="article-written">
         Written on
-        <date datetime="{{ page.date }}">
+        <date datetime="{{ page.date.toISOString() }}">
           {{ page.date | formatDate }}
         </date>
       </p>

@@ -5,7 +5,7 @@
   <div class="title-and-date">
     <a href="{{ url }}">{{ title }}</a>
 
-    <time datetime="{{ date }}">
+    <time datetime="{{ date.toISOString() }}">
       {{ date | formatDate }}
     </time>
   </div>
