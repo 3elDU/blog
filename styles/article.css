@@ -13,7 +13,7 @@
 #article-heading {
   margin-bottom: var(--size-lg);
 
-  & > h1 {
+  & > .article-title {
     font-size: var(--font-display);
     font-weight: 700;
     line-height: 1.1;
