@@ -3,11 +3,16 @@ layout: base.njk
 ---
 
 {% if (not page.url.endsWith(".css")) %}
+
+{% block scripts %}
+<script src="/scripts/article/read-button.js" async></script>
+{% endblock %}
+
 <div id="article-content-wrapper">
   <main id="article">
     <section id="article-heading">
       <h2 class="article-title">{{ title }}</h2>
-      <p class="article-written">
+      <p class="article-sub">
         Written on
         <date datetime="{{ page.date.toISOString() }}">
           {{ page.date | formatDate }}
@@ -21,9 +26,18 @@ layout: base.njk
         {% endfor %}
       </p>
     </section>
-    {{ content | safe }}
+    {{ content | safe}}
+    <form id="ive-read-this" action="" method="post">
+      <hr>
+      <p>
+        <span class="view-counter">{viewCount}</span> people have read this article.
+      </p>
+      <button type="submit" {viewButtonExtraAttrs}>
+        I've read this too!
+      </button>
+    </form>
   </main>
 </div>
 {% else %}
-{{ content | safe }}
+{ { content | safe } }
 {% endif %}

@@ -1,0 +1,6 @@
+{
+  "files.associations": { "*.njk": "jinja-html" },
+  "[typescript]": {
+    "editor.indentSize": 2
+  }
+}

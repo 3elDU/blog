@@ -17,5 +17,5 @@
 #footer hr {
   flex: 1;
   max-width: calc(var(--article-max-width) / 2.5);
-  color: var(--elevation-medium-rgb);
+  color: var(--elevation-low-rgb);
 }

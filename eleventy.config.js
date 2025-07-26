@@ -1,3 +1,4 @@
+import * as esbuild from "esbuild";
 import { bundle } from "lightningcss";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -60,6 +61,31 @@ export default async function (eleventyConfig) {
       return async () => {
         return result.code.toString();
       };
+    },
+  });
+
+  eleventyConfig.addTemplateFormats("ts");
+  eleventyConfig.addExtension("ts", {
+    outputFileExtension: "js",
+    read: false,
+    /**
+     * @param {string} path
+     * @returns
+     */
+    compile: async (_, path) => {
+      // Bundle everything in ./scripts folder, but do not bundle library files as individual entrypoints
+      if (path.startsWith("./scripts") && !path.startsWith("./scripts/lib")) {
+        const result = await esbuild.build({
+          entryPoints: [path],
+          bundle: true,
+          write: false,
+          minify: true,
+        });
+
+        return async () => {
+          return result.outputFiles?.at(0)?.text;
+        };
+      }
     },
   });
 }

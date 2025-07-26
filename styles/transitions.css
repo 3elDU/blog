@@ -1,7 +1,7 @@
 :root {
-  --transition-fast: 75ms ease-in-out;
-  --transition-medium: 150ms ease-in-out;
-  --transition-slow: 300ms ease-in-out;
+  --transition-fast: 133ms ease-in-out;
+  --transition-medium: 267ms ease-in-out;
+  --transition-slow: 400ms ease-in-out;
 }
 
 @media (prefers-reduced-motion) {
