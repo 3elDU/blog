@@ -5,8 +5,9 @@
   "main": "index.js",
   "author": "petafloppa",
   "scripts": {
-    "dev": "concurrently 'eleventy --watch' 'wrangler dev'",
-    "deploy": "eleventy && wrangler deploy"
+    "dev": "concurrently 'eleventy --watch' 'wrangler dev -c workers/blog/wrangler.jsonc'",
+    "deploy": "eleventy && wrangler deploy",
+    "types": "wrangler types --cwd workers/blog"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
@@ -17,6 +18,7 @@
     "wrangler": "^4.24.0"
   },
   "dependencies": {
-    "cookie": "^1.0.2"
+    "cookie": "^1.0.2",
+    "hono": "^4.8.9"
   }
 }

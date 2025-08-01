@@ -69,14 +69,22 @@
   }
 }
 
-#ive-read-this {
+#article-views {
   & > hr {
     margin-top: var(--size-xxl);
     margin-bottom: var(--size-xxl);
     color: var(--elevation-low-rgb);
   }
 
-  & > button[type="submit"] {
+  & > #article-views-paragraph {
+    transition: opacity var(--transition-medium);
+    &:not(.loaded) {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  & > .view-button {
     margin-top: var(--size-sm);
     padding: var(--size-sm) var(--size-md) var(--size-sm) var(--size-md);
     border: none;

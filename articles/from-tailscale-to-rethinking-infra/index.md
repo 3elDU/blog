@@ -4,6 +4,7 @@ tags:
   - selfhosting
   - vpn
   - autism
+date: 2025-02-19
 ---
 
 > **TL;DR**

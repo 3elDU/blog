@@ -1,30 +1,48 @@
 // Handles the behavior of "I've read this!" button on an article.
 
-document
-  .querySelector<HTMLFormElement>("#ive-read-this")!
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
+import { parse } from "cookie";
 
-    if (document.cookie.includes("seen=true")) {
-      return;
-    }
+const viewButtonEl = document.querySelector<HTMLButtonElement>(
+  "#article-views > .view-button"
+)!;
 
-    const form = event.target as HTMLFormElement;
-    fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      headers: {
-        "X-Requested-With": "fetch",
-      },
+const { seen } = parse(document.cookie);
+
+const articleName = /^\/articles\/([a-z-]+)$/.exec(location.pathname)!.at(1)!;
+
+if (!seen) {
+  viewButtonEl.disabled = false;
+}
+
+async function updateViewCount(method: "get" | "post") {
+  fetch(`/api/views/${articleName}`, { method })
+    .then((response) => {
+      if (!response.ok || response.status !== 200) {
+        throw response;
+      } else {
+        return response.text();
+      }
     })
-      .then((response) => response.text())
-      .then((response) => {
-        document.querySelector<HTMLSpanElement>(
-          "#ive-read-this .view-counter"
-        )!.innerText = response;
+    .then(async (views) => {
+      document.querySelector<HTMLSpanElement>(
+        "#article-views-paragraph .count"
+      )!.innerText = views;
+      document
+        .getElementById("article-views-paragraph")!
+        .classList.add("loaded");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 
-        document.querySelector<HTMLButtonElement>(
-          '#ive-read-this > button[type="submit"]'
-        )!.disabled = true;
-      });
-  });
+updateViewCount("get");
+
+viewButtonEl.addEventListener("click", () => {
+  if (seen) {
+    return;
+  }
+
+  updateViewCount("post");
+  viewButtonEl.disabled = true;
+});

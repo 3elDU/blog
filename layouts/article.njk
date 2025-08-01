@@ -5,7 +5,7 @@ layout: base.njk
 {% if (not page.url.endsWith(".css")) %}
 
 {% block scripts %}
-<script src="/scripts/article/read-button.js" async></script>
+<script src="/scripts/article/read-button.js" async="true" defer></script>
 {% endblock %}
 
 <div id="article-content-wrapper">
@@ -27,15 +27,15 @@ layout: base.njk
       </p>
     </section>
     {{ content | safe}}
-    <form id="ive-read-this" action="" method="post">
+    <section id="article-views">
       <hr>
-      <p>
-        <span class="view-counter">{viewCount}</span> people have read this article.
+      <p id="article-views-paragraph">
+        <strong class="count"></strong> people have read this article.
       </p>
-      <button type="submit" {viewButtonExtraAttrs}>
+      <button class="view-button" disabled aria-controls="article-views-paragraph">
         I've read this too!
       </button>
-    </form>
+    </section>
   </main>
 </div>
 {% else %}
