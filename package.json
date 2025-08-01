@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "concurrently 'eleventy --watch' 'wrangler dev -c workers/blog/wrangler.jsonc'",
     "build": "eleventy",
-    "deploy": "eleventy && wrangler deploy",
     "types": "wrangler types --cwd workers/blog"
   },
   "devDependencies": {
