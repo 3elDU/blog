@@ -1,35 +1,41 @@
 ---
 title: petafloppa's blog
+footer: true
 ---
 
 {% if (not page.url.endsWith(".css")) %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
 
-    <link rel="icon" href="/assets/favicon.png" />
-    <link rel="stylesheet" href="/styles/index.css" />
-    <script src="https://stat.petafloppa.cc/stat.js" async></script>
+<head>
+  <meta charset="UTF-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="{{ eleventy.generator }}" />
-    <title>{{ title }}</title>
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="stylesheet" href="/styles/index.css" />
+  <script src="https://stat.petafloppa.cc/stat.js" async></script>
 
-    {% if css %}
-    <!-- Per-page CSS -->
-    {% for stylesheet in css %}
-    <link rel="stylesheet" href="{{ stylesheet }}" />
-    {% endfor %} {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="{{ eleventy.generator }}" />
+  <title>{{ title }}</title>
 
-    <!-- Extra per-page scripts -->
-    {% block scripts %} {% endblock %}
-  </head>
-  <body>
-    {% include "navbar.njk" %}
-    {{ content | safe }}
-    {% include "footer.njk" %}
-  </body>
+  {% if css %}
+  <!-- Per-page CSS -->
+  {% for stylesheet in css %}
+  <link rel="stylesheet" href="{{ stylesheet }}" />
+  {% endfor %} {% endif %}
+
+  <!-- Extra per-page scripts -->
+  {% block scripts %} {% endblock %}
+</head>
+
+<body>
+  {% include "navbar.njk" %}
+  {{ content | safe }}
+  {% if (footer) %}
+  {% include "footer.njk" %}
+  {% endif %}
+</body>
+
 </html>
 {% else %}
 {{ content | safe }}

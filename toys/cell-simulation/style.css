@@ -1,0 +1,34 @@
+@layer pages {
+  html,
+  body,
+  main,
+  iframe {
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+
+  body {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    height: 100%;
+  }
+
+  iframe {
+    background: var(--elevation-low-rgb);
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: var(--size-xl);
+    border-top-right-radius: var(--size-xl);
+    @media (prefers-color-scheme: light) {
+      box-shadow: 0 -4px 8px var(--elevation-medium-rgb);
+    }
+    @media (prefers-color-scheme: dark) {
+      border-top: 2px solid var(--elevation-medium-rgb);
+    }
+  }
+}

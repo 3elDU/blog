@@ -1,0 +1,63 @@
+---
+layout: base.njk
+css: [/toys/style.css]
+---
+
+<main>
+  <section id="about">
+    <h1>Toy projects</h1>
+    <p>
+      This is the collection of my pet projects that were made to learn more
+      about a particular technology, implement an idea that I had in my head for
+      a long time, kill time, etc., but they are still cool, so I'm showing them
+      here.<br />
+      Each project listen here runs directly in the browser, so you can play
+      with them too!
+    </p>
+  </section>
+  <ul id="toys">
+    <article class="toy-card">
+      <picture>
+        <source srcset="/assets/images/toys/raytracer.avif" type="image/avif" />
+        <source srcset="/assets/images/toys/raytracer.jpg" type="image/jpeg" />
+        <img
+          class="cover"
+          src=""
+          alt="An image of raytracing program showing three balls, in red, green and blue colors, each acting as a light source and casting colorful shadows on each other"
+        />
+      </picture>
+      <section class="body">
+        <h3 class="heading">
+          <a href="/toys/raytracer">Raytracer</a>
+        </h3>
+        <p>
+          A raytracer algorithm written in Rust. You can create shapes, edit
+          their positions and colors, and render the image.<br />
+          Made possible on the web thanks to WASM
+        </p>
+      </section>
+    </article>
+    <article class="toy-card">
+      <picture>
+        <source srcset="/assets/images/toys/cells.avif" type="image/avif" />
+        <source srcset="/assets/images/toys/cells.jpg" type="image/jpeg" />
+        <img
+          class="cover"
+          src=""
+          alt="An image of raytracing program showing three balls, in red, green and blue colors, each acting as a light source and casting colorful shadows on each other"
+        />
+      </picture>
+      <section class="body">
+        <h3 class="heading">
+          <a href="/toys/cell-simulation">Cell simulation</a>
+        </h3>
+        <p>
+          A genetic algorithm, simulating the evolution of cells in a virtual
+          petri dish.<br />
+          Each cell can be inspected, and the overall performance has been
+          highly optimized by moving the simulation to the separate Web Worker.
+        </p>
+      </section>
+    </article>
+  </ul>
+</main>
