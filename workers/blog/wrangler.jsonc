@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/wrangler/config-schema.json",
-  "name": "router",
+  "name": "blog",
   "main": "./index.ts",
   "compatibility_date": "2025-07-09",
   "compatibility_flags": ["global_fetch_strictly_public"],
