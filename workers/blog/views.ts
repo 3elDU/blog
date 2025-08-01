@@ -1,16 +1,3 @@
-/** Remove URL origin, leaving only the pathname. */
-export function getArticleKey(url: string | URL): string {
-  let key: string;
-  if (url instanceof URL) {
-    key = url.pathname;
-  } else {
-    key = new URL(url).pathname;
-  }
-
-  // Return key with trailing slash removed
-  return key.replace(/\/^/, "");
-}
-
 export async function getArticleViews(env: Env, key: string): Promise<number> {
   const val = await env.ARTICLE_VIEWS.get(key);
   if (val) {

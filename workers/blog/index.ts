@@ -1,11 +1,11 @@
-import { getArticleKey, getArticleViews, incrementArticleViews } from "./views";
+import { getArticleViews, incrementArticleViews } from "./views";
 import { Hono } from "hono";
 import { getCookie, setCookie } from "hono/cookie";
 
 const hono = new Hono<{ Bindings: Env }>();
 
 hono.on(["get", "post"], "/api/views/:article{[a-z-]+}", async (c) => {
-  const key = getArticleKey(c.req.url);
+  const key = c.req.param("article");
   const seen = getCookie(c, "seen");
 
   if (c.req.method == "POST") {
