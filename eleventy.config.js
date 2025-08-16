@@ -1,6 +1,18 @@
 import * as esbuild from "esbuild";
 import { bundle } from "lightningcss";
 
+const cssEntrypoints = [
+  "./styles/index.css",
+  // Also bundle everything not inside ./styles/
+  /^\.(?!\/styles\/)[a-zA-Z-/]+.css$/,
+];
+
+const jsEntrypoints = [
+  // Bundle verything inside ./scripts, but not ./scripts/lib
+  // (those are library files not meant to be entrypoints)
+  /^\.\/scripts\/(?!lib)[a-zA-Z-/]+.(js|ts)$/,
+];
+
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
   eleventyConfig.setLayoutsDirectory("layouts");
@@ -46,21 +58,20 @@ export default async function (eleventyConfig) {
      * @param {string} path
      */
     compile: async (_, path) => {
-      // In ./styles/ and all of it's subdirectories, only handle index.css,
-      // because we're well, bundling CSS.
-      // If the style originates not from ./styles directory, bundle it separately, to allow page-specific styles
-      if (path.startsWith("./styles/") && path !== "./styles/index.css") {
-        return;
+      for (const entrypoint of cssEntrypoints) {
+        if (typeof entrypoint == "string" && path != entrypoint) continue;
+        else if (entrypoint instanceof RegExp && !entrypoint.test(path))
+          continue;
+
+        const result = bundle({
+          filename: path,
+          minify: true,
+        });
+
+        return async () => {
+          return result.code.toString();
+        };
       }
-
-      const result = bundle({
-        filename: path,
-        minify: true,
-      });
-
-      return async () => {
-        return result.code.toString();
-      };
     },
   });
 
@@ -73,8 +84,11 @@ export default async function (eleventyConfig) {
      * @returns
      */
     compile: async (_, path) => {
-      // Bundle everything in ./scripts folder, but do not bundle library files as individual entrypoints
-      if (path.startsWith("./scripts") && !path.startsWith("./scripts/lib")) {
+      for (const entrypoint of jsEntrypoints) {
+        if (typeof entrypoint == "string" && path != entrypoint) continue;
+        else if (entrypoint instanceof RegExp && !entrypoint.test(path))
+          continue;
+
         const result = await esbuild.build({
           entryPoints: [path],
           bundle: true,
