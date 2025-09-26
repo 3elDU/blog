@@ -3,14 +3,15 @@ import { bundle } from "lightningcss";
 
 const cssEntrypoints = [
   "./styles/index.css",
+  // Homepage main / dark mode stylesheets
+  /^\.\/styles\/homepage\/(index|dark).css$/,
   // Also bundle everything not inside ./styles/
   /^\.(?!\/styles\/)[a-zA-Z-/]+.css$/,
 ];
 
 const jsEntrypoints = [
-  // Bundle verything inside ./scripts, but not ./scripts/lib
-  // (those are library files not meant to be entrypoints)
-  /^\.\/scripts\/(?!lib)[a-zA-Z-/]+.(js|ts)$/,
+  "./scripts/article/read-button.ts",
+  "./scripts/homepage/index.ts",
 ];
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
@@ -53,6 +54,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addExtension("css", {
     outputFileExtension: "css",
     read: false,
+    watch: true,
     /**
      * @param {string} content
      * @param {string} path
@@ -79,6 +81,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addExtension("ts", {
     outputFileExtension: "js",
     read: false,
+    watch: true,
     /**
      * @param {string} path
      * @returns

@@ -1,5 +1,6 @@
 ---
 title: petafloppa's blog
+navbar: true
 footer: true
 ---
 
@@ -13,7 +14,14 @@ footer: true
   <link rel="icon" href="/assets/favicon.png" />
   <link rel="stylesheet" href="/styles/index.css" />
   <link rel="stylesheet" href="/fonts/subfont.css" />
+  {% if links %}
+  {% for link in links %}
+  {{ link | safe }}
+  {% endfor %}
+  {% endif %}
+  {% if process.env.ELEVENTY_RUN_MODE == 'build' %}
   <script src="https://stat.petafloppa.cc/stat.js" async></script>
+  {% endif %}
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="generator" content="{{ eleventy.generator }}" />
@@ -22,18 +30,18 @@ footer: true
 
   <title>{{ title }}</title>
 
+  {# Per-page CSS #}
   {% if css %}
-  <!-- Per-page CSS -->
   {% for stylesheet in css %}
-  <link rel="stylesheet" href="{{ stylesheet }}" />
+  <link rel="stylesheet" href="{{ stylesheet.href }}" {% if stylesheet.media %} media="{{ stylesheet.media }}" {%
+    endif%} />
   {% endfor %} {% endif %}
-
-  <!-- Extra per-page scripts -->
-  {% block scripts %} {% endblock %}
 </head>
 
 <body>
+  {% if (navbar) %}
   {% include "navbar.njk" %}
+  {% endif %}
   {{ content | safe }}
   {% if (footer) %}
   {% include "footer.njk" %}

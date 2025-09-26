@@ -1,5 +1,6 @@
 {
   "files.associations": { "*.njk": "jinja-html" },
+  "emmet.includeLanguages": { "jinja-html": "html" },
   "[typescript]": {
     "editor.indentSize": 2
   }

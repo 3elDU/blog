@@ -1,0 +1,55 @@
+{% extends "homepage/dialogs/base.njk" %}
+
+{% block title %}
+Bamboo
+{% endblock title %}
+
+{% block body %}
+<img src="/assets/images/homepage/bamboo0.jpg" alt="Screenshot of main menu inside a game with bright background"
+  class="hero-target" />
+
+<p>
+  <i><a href="https://github.com/3elDU/bamboo" target="_blank">Bamboo</a></i> is my top-down sandbox game. I started
+  developing
+  it in late 2022 as i was learning
+  <a href="https://go.dev" target="_blank">Go</a>.<br>
+  I used <a href="https://ebitengine.org" target="_blank">Ebitengine</a> as a rendering engine.<br>
+  That idea of building a "top-down minecraft" went a long way, I've added a lot of features, and had a lot of fun with
+  this project.
+</p>
+
+<h1>Gameplay</h1>
+<p>
+  You start in a procedurally generated world with trees, ocean and vegetation.
+  Chopping trees gives you sticks and saplings. Sticks can be used in crafting, while samplings can be planted to grow
+  more trees.<br>
+  There is a crafting system for crafting items, while some entities can be creating by placing stuff on the ground,
+  such
+  as the campfire.
+</p>
+
+<h1>Development</h1>
+<p>
+  I started progress in late 2022, and it has stalled in late 2023. It has been a great journey and I'm quite proud of
+  the project.<br>
+  I've drawn my own font, all textures except player's are also by me, and I've wrote a whole UI library in Go just to
+  draw some buttons on screen
+</p>
+
+<h1>Screenshots</h1>
+<figure>
+  <img class="halfwidth" loading="lazy" decoding="async" src="/assets/images/homepage/bamboo1.jpg"
+    alt="Screenshot showing player standing on a grass field near a campfire, among some trees" />
+  <figcaption>Near spawnpoint</figcaption>
+</figure>
+<figure>
+  <img class="halfwidth" loading="lazy" decoding="async" src="/assets/images/homepage/bamboo2.jpg"
+    alt="Screenshot showing player standing near to a cave entrance" />
+  <figcaption>Cave entrance</figcaption>
+</figure>
+<figure>
+  <img class="halfwidth" loading="lazy" decoding="async" src="/assets/images/homepage/bamboo3.jpg"
+    alt="Screenshot showing player inside cave standing near to iron ore" />
+  <figcaption>Iron ore inside a cave</figcaption>
+</figure>
+{% endblock body %}

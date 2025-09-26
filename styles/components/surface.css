@@ -1,0 +1,45 @@
+@property --glass-blur {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 6px;
+}
+/* On a scale from 0 to 1.0, where 0 is fully transparent and 1 is fully opaque */
+@property --glass-opaque {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.25;
+}
+
+.glass-surface {
+  --glass-light-shadow: rgba(255, 255, 255, 0.7);
+  --glass-dark-shadow: rgba(0, 0, 0, 30%);
+
+  /** Reusable glass box shadow */
+  --glass-box-shadow: /* Dark shadow behind the element */ 0 0 2px
+      rgba(0, 0, 0, 25%),
+    /* Dark shadow with more spread */ 0 0 8px rgba(0, 0, 0, 30%),
+    /* Inset light shadow */ 0 0 4px var(--glass-light-shadow) inset;
+
+  --glass-tint-color: light-dark(white, black);
+  --glass-background: rgb(
+    from var(--glass-tint-color) r g b / calc(var(--glass-opaque) * 60%)
+  );
+
+  background: var(--glass-background);
+
+  &:not(.no-shadows) {
+    box-shadow: var(--glass-box-shadow);
+  }
+
+  &:not(.no-blur) {
+    backdrop-filter: blur(var(--glass-blur));
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .glass-surface {
+    --glass-light-shadow: transparent;
+    --glass-dark-shadow: transparent;
+
+    border: 1px solid rgba(0, 0, 0, 20%);
+  }
+}

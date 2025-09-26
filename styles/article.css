@@ -37,9 +37,13 @@
   }
 }
 
-#article {
+#article,
+.article {
   width: 100%;
-  max-width: var(--article-max-width);
+
+  &:not(.unlimited-width) {
+    max-width: var(--article-max-width);
+  }
 
   /** Markdown styling */
 
@@ -66,6 +70,27 @@
   & > blockquote {
     padding-left: var(--size-md);
     border-left: var(--size-xs) solid var(--elevation-max-rgb);
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--size-md);
+    &.halfwidth {
+      max-width: 480px;
+    }
+    @media (prefers-color-scheme: light) {
+      box-shadow: 0 0 4px rgba(0, 0, 0, 30%);
+    }
+  }
+
+  & > figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--size-xs);
   }
 }
 

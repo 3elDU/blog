@@ -1,0 +1,91 @@
+.dialog-trigger {
+  will-change: transform, visibility;
+}
+.dialog-target {
+  will-change: transform;
+}
+
+body:has(dialog[open]) {
+  overflow-y: hidden;
+}
+
+dialog.dialog {
+  outline: none;
+  border: none;
+
+  margin: auto;
+  max-width: 90ch;
+  width: 100%;
+
+  min-height: min(calc(100svh - 48px), 256px);
+  height: 75%;
+
+  background: none;
+  border-radius: var(--size-lg);
+  overflow: clip;
+
+  &[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  & > .header {
+    border-radius: var(--size-lg) var(--size-lg) 0 0;
+    background: var(--elevation-low-rgb);
+    padding: var(--size-sm) var(--size-md) var(--size-sm) var(--size-md);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--size-sm);
+
+    & > .title {
+      font-size: var(--font-xl);
+    }
+
+    & > .close {
+      & > .button {
+        display: block;
+        border: none;
+        background: none;
+
+        width: var(--size-lg);
+        height: var(--size-lg);
+        fill: var(--elevation-muted-rgb);
+      }
+    }
+  }
+
+  & > .body {
+    height: 100%;
+    overflow-y: auto;
+    padding: var(--size-md);
+    padding-top: 0;
+    background: var(--elevation-none-rgb);
+  }
+
+  &::backdrop {
+    background: none;
+  }
+}
+
+@media (width <= 768px) {
+  dialog.dialog {
+    margin: auto 0 0 0;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+
+  backdrop-filter: brightness(75%);
+  opacity: 0;
+}
+body:not([data-low-perf="true"]) .dialog-backdrop {
+  backdrop-filter: brightness(75%) blur(var(--size-md));
+}

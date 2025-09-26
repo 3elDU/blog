@@ -19,6 +19,6 @@
   },
   "dependencies": {
     "cookie": "^1.0.2",
-    "hono": "^4.8.9"
+    "hono": "^4.8"
   }
 }

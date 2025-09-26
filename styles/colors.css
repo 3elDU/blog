@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light dark;
+
   --tint-color: #ed872d;
   --tint-percentage: 15%;
 

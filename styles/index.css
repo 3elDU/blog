@@ -1,4 +1,4 @@
-@layer fonts, variables, base, pages, components;
+@layer fonts, variables, base, components, page;
 
 @import "./fonts.css" layer(fonts);
 @import "./colors.css" layer(variables);
