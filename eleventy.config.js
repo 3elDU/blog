@@ -1,3 +1,4 @@
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import * as esbuild from "esbuild";
 import { bundle } from "lightningcss";
 
@@ -21,6 +22,25 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.setOutputDirectory("dist");
+
+  /** RSS feed */
+  eleventyConfig.addPlugin(feedPlugin, {
+    type: "rss",
+    outputPath: "/feed.xml",
+    collection: {
+      name: "posts",
+      limit: 0,
+    },
+    metadata: {
+      language: "en",
+      title: "Petafloppa's Blog",
+      subtitle: "My blog about programming, lifestyle and occasional hacking",
+      base: "https://petafloppa.cc",
+      author: {
+        name: "Zakhar Voloshchuk",
+      },
+    },
+  });
 
   /** Filter to format date as "Month Year", for example "February 2025" */
   eleventyConfig.addFilter(

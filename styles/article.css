@@ -92,15 +92,13 @@
     align-items: center;
     gap: var(--size-xs);
   }
+
+  & > hr {
+    border: 1px solid var(--elevation-low-rgb);
+  }
 }
 
 #article-views {
-  & > hr {
-    margin-top: var(--size-xxl);
-    margin-bottom: var(--size-xxl);
-    color: var(--elevation-low-rgb);
-  }
-
   & > #article-views-paragraph {
     transition: opacity var(--transition-medium);
     &:not(.loaded) {
