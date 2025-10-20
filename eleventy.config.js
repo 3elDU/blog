@@ -5,7 +5,7 @@ import { bundle } from "lightningcss";
 const cssEntrypoints = [
   "./styles/index.css",
   // Homepage main / dark mode stylesheets
-  /^\.\/styles\/homepage\/(index|dark).css$/,
+  /^\.\/styles\/homepage\/index.css$/,
   // Also bundle everything not inside ./styles/
   /^\.(?!\/styles\/)[a-zA-Z-/]+.css$/,
 ];
@@ -18,6 +18,7 @@ const jsEntrypoints = [
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function (eleventyConfig) {
   eleventyConfig.setLayoutsDirectory("layouts");
+  eleventyConfig.setDataDirectory("data");
   eleventyConfig.setIncludesDirectory("components");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("assets");

@@ -19,7 +19,8 @@ footer: true
   {{ link | safe }}
   {% endfor %}
   {% endif %}
-  {% if process.env.ELEVENTY_RUN_MODE == 'build' %}
+
+  {% if eleventy.runMode == 'build' %}
   <script src="https://stat.petafloppa.cc/stat.js" async></script>
   {% endif %}
 

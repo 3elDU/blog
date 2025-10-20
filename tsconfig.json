@@ -1,13 +1,18 @@
 {
-  "references": [
-    {
-      // Scripts processed by eleventy for the web browser.
-      // They all will be served as static assets
-      "path": "./tsconfig.web.json"
-    },
-    {
-      // Main worker that handles routing to other workers
-      "path": "./workers/blog/tsconfig.json"
-    }
-  ]
+  // All files processed by eleventy
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "composite": true,
+    "allowJs": true,
+    // doesn't do anything because files are emitted by the bundler
+    "outDir": "./dist"
+  },
+  "include": ["./scripts/**/*"]
 }
