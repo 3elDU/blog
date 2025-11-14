@@ -8,3 +8,7 @@ a {
     text-decoration-thickness: 3px;
   }
 }
+
+a:visited {
+  color: var(--elevation-muted-rgb);
+}

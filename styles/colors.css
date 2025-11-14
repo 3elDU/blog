@@ -55,3 +55,9 @@
     --elevation-muted: 207, 207, 207;
   }
 }
+
+:root {
+  background: var(--elevation-none-rgb);
+  color: var(--elevation-max-rgb);
+  accent-color: var(--tint-color);
+}

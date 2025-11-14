@@ -67,8 +67,9 @@ export default async function (eleventyConfig) {
     }
   );
 
-  /** Auto reload when CSS files change */
+  /** Auto reload when CSS/JS files change */
   eleventyConfig.addWatchTarget("./styles");
+  eleventyConfig.addWatchTarget("./scripts");
 
   /** CSS bundling */
   eleventyConfig.addTemplateFormats("css");
@@ -81,20 +82,23 @@ export default async function (eleventyConfig) {
      * @param {string} path
      */
     compile: async (_, path) => {
-      for (const entrypoint of cssEntrypoints) {
-        if (typeof entrypoint == "string" && path != entrypoint) continue;
-        else if (entrypoint instanceof RegExp && !entrypoint.test(path))
-          continue;
-
-        const result = bundle({
-          filename: path,
-          minify: true,
-        });
-
-        return async () => {
-          return result.code.toString();
-        };
+      if (
+        !cssEntrypoints.includes(path) &&
+        !cssEntrypoints
+          .filter((e) => e instanceof RegExp)
+          .filter((e) => e.test(path)).length
+      ) {
+        return;
       }
+
+      const result = bundle({
+        filename: path,
+        minify: true,
+      });
+
+      return async () => {
+        return result.code.toString();
+      };
     },
   });
 
@@ -108,22 +112,25 @@ export default async function (eleventyConfig) {
      * @returns
      */
     compile: async (_, path) => {
-      for (const entrypoint of jsEntrypoints) {
-        if (typeof entrypoint == "string" && path != entrypoint) continue;
-        else if (entrypoint instanceof RegExp && !entrypoint.test(path))
-          continue;
-
-        const result = await esbuild.build({
-          entryPoints: [path],
-          bundle: true,
-          write: false,
-          minify: true,
-        });
-
-        return async () => {
-          return result.outputFiles?.at(0)?.text;
-        };
+      if (
+        !jsEntrypoints.includes(path) &&
+        !jsEntrypoints
+          .filter((e) => e instanceof RegExp)
+          .filter((e) => e.test(path)).length
+      ) {
+        return;
       }
+
+      const result = await esbuild.build({
+        entryPoints: [path],
+        bundle: true,
+        write: false,
+        minify: true,
+      });
+
+      return async () => {
+        return result.outputFiles?.at(0)?.text;
+      };
     },
   });
 }
