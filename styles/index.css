@@ -1,9 +1,9 @@
-@layer base, fonts, variables, components, page;
+@layer base, fonts, variables, components, article, page;
 
 @import "./base.css" layer(base);
 @import "./fonts.css" layer(fonts);
 @import "./colors.css" layer(variables);
 @import "./sizing.css" layer(variables);
 @import "./transitions.css" layer(variables);
-@import "./article.css" layer(base);
+@import "./article/index.css" layer(article);
 @import "./components/index.css" layer(components);
