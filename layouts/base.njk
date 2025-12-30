@@ -20,7 +20,7 @@ footer: true
   {% endfor %}
   {% endif %}
 
-  {% if eleventy.runMode == 'build' %}
+  {% if eleventy.env.runMode == 'build' %}
   <script src="https://stat.petafloppa.cc/stat.js" async></script>
   {% endif %}
 
