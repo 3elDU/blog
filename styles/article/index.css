@@ -67,6 +67,7 @@
 
   & > :is(ul, ol, dl) {
     margin-left: var(--size-md);
+    list-style: revert;
   }
 
   & > blockquote {
@@ -88,7 +89,7 @@
   }
 
   /** Color non-visited links in primary color */
-  & a:not(:visited) {
+  &:not(.no-link-coloring) a:not(:visited) {
     color: var(--tint-color);
   }
 

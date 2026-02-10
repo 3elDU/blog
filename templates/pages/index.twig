@@ -1,0 +1,301 @@
+{% extends "@layouts/base.twig" %}
+
+{% block extraHead %}
+  <link rel="preload" href="/fonts/ChakraPetch-Bold.woff2" as="font" crossorigin>
+  <link rel="stylesheet" href="/dist/styles/pages/homepage.css" />
+  <script src="/dist/scripts/homepage/index.js" defer></script>
+{% endblock %}
+
+{% block navbar null %}
+{% block footer null %}
+
+{% from "@components/homepage/read-more-button.twig" import readMoreButton %}
+
+{% block body %}
+<div id="canvas-container">
+  <canvas id="canvas"></canvas>
+</div>
+
+<div id="heading-stack">
+  {{ include('@components/navbar.twig', {glassNavbar: true}) }}
+
+  <header class="heading-wrapper">
+    <div class="heading">
+      <h2 class="aka">aka petafloppa</h2>
+      <h1 class="title">Zakhar Voloschuk</h1>
+      <h3 class="subtitle" aria-hidden="true">
+        I like
+        <span id="technology"><noscript>Programming</noscript></span
+        ><span class="cursor" aria-hidden="true"></span>
+      </h3>
+    </div>
+  </header>
+
+  <div class="down-arrow" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"
+      />
+    </svg>
+  </div>
+</div>
+
+<main id="main" class="glass-surface no-blur">
+  <div class="content">
+    <div class="cards">
+      <section class="card" style="grid-area: a">
+        <header class="header">
+          <h2 class="title glass-surface">About me</h2>
+        </header>
+        <div class="body glass-surface">
+          <p>
+            I'm a web developer from Ukraine. I like making websites pretty (and
+            sometimes even fast), learning new APIs and tinkering with stuff.
+            While I primarily work with browsers, I'm also into embedded
+            development and other low-level shenanigans.<br />
+            I'm quite sociable and open to communication. Reach me out and say
+            hi, I don't bite!
+          </p>
+
+          <ul id="contacts" aria-label="Contact me">
+            <li class="glass-surface no-blur">
+              <a
+                href="https://t.me/petafloppa"
+                title="Telegram"
+                target="_blank"
+              >
+                {% include "@components/homepage/icons/telegram.twig" %}
+              </a>
+            </li>
+            <li class="glass-surface no-blur">
+              <a href="mailto:3elduu@gmail.com" title="E-mail" target="_blank">
+                {% include "@components/homepage/icons/email.twig" %}
+              </a>
+            </li>
+            <li class="glass-surface no-blur">
+              <a
+                rel="me"
+                href="https://meow.social/@petafloppa"
+                title="Mastodon"
+                target="_blank"
+              >
+                {% include "@components/homepage/icons/mastodon.twig" %}
+              </a>
+            </li>
+            <li class="glass-surface no-blur">
+              <a href="https://github.com/3elDU" title="GitHub" target="_blank">
+                {% include "@components/homepage/icons/github.twig" %}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" style="grid-area: b">
+        <header class="header">
+          <h2 class="title glass-surface">Frontend</h2>
+          {{ readMoreButton("frontend-more") }}
+        </header>
+        <div class="body glass-surface">
+          <ul>
+            <li>
+              <span class="badge">5/5</span>
+              Vue 3
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              Nuxt 3
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              Electron
+            </li>
+            <li>
+              <span class="badge">2/5</span>
+              ReactJS
+            </li>
+            <li>
+              <span class="badge">2/5</span>
+              Tailwind CSS
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" style="grid-area: c">
+        <header class="header">
+          <h2 class="title glass-surface">Compooter languages</h2>
+        </header>
+        <div class="body glass-surface">
+          <ul>
+            <li>
+              <span class="badge">5/5</span>
+              TypeScript
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              Go
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              C
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              JavaScript
+            </li>
+            <li>
+              <span class="badge">3/5</span>
+              Python
+            </li>
+            <li>
+              <span class="badge">2/5</span>
+              Bash
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="card" style="grid-area: d">
+        <header class="header">
+          <h2 class="title glass-surface">Technologies</h2>
+        </header>
+        <div class="body glass-surface">
+          <ul>
+            <li>
+              <span class="badge">5/5</span>
+              Linux
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              Node.js
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              Docker
+            </li>
+            <li>
+              <span class="badge">4/5</span>
+              Nix
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="card" style="grid-area: e">
+        <header class="header">
+          <h2 class="title glass-surface">IRL Languages</h2>
+        </header>
+        <div class="body glass-surface">
+          <ul>
+            <li>
+              <span class="badge">B1</span>
+              English
+            </li>
+            <li>
+              <span class="badge">Native</span>
+              Ukrainian
+            </li>
+            <li>
+              <span class="badge">Native</span>
+              Russian
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" style="grid-area: g">
+        <header class="header">
+          <h2 class="title glass-surface">Personal projects</h2>
+        </header>
+        <div class="body grid">
+          <article class="subcard glass-surface">
+            <img
+              src="/assets/images/homepage/bamboo0.jpg"
+              alt="Screenshot of main menu inside a game with bright background"
+              class="dialog-trigger hero-trigger"
+              data-toggle="dialog"
+              data-target="bamboo-more"
+            />
+            <div class="content">
+              <a href="https://github.com/3elDU/bamboo">Bamboo</a>
+              <div class="project-badges">
+                <span class="badge">Go</span>
+                <span class="badge">Ebiten</span>
+              </div>
+              <p>
+                2D Top-down sandbox inspired by Minecraft. You spawn on an
+                island an need to survive. Find resources, craft equipment and
+                make yourself home.
+              </p>
+            </div>
+          </article>
+
+          <article class="subcard glass-surface">
+            <img
+              src="/assets/images/homepage/cellsim.jpg"
+              alt="Screenshot of a website with sidebar on the left and canvas in center showing a grid of colorful cells"
+            />
+
+            <div class="content">
+              <a href="https://github.com/3elDU/cell-simulation-js"
+                >Cell simulation</a
+              >
+              <div class="project-badges">
+                <span class="badge">Web</span>
+                <span class="badge">Vue</span>
+              </div>
+              <p>
+                Genetic algorithm that simulates living cells: each cell has a
+                set of instructions (genome), essentially acting as a tiny VM.
+                Cells can move, make energy through photosynthesis, mutate, kill
+                each other and reproduce, just like their real counterparts.
+              </p>
+            </div>
+          </article>
+
+          <article class="subcard glass-surface">
+            <img
+              src="/assets/images/homepage/spdl.jpg"
+              alt="Screenshot of a music player application showing a page with liked tracks"
+            />
+
+            <div class="content">
+              <a href="https://github.com/3elDU/spdl">spdl</a>
+              <div class="project-badges">
+                <span class="badge">Desktop</span>
+                <span class="badge">Electron</span>
+                <span class="badge">Vue</span>
+                <span class="badge">TypeScript</span>
+                <span class="badge">Quasar</span>
+              </div>
+              <p>
+                An electron app to download tracks/playlists via your spotify
+                account.<br />
+                As spotify prohibits ripping tracks from their platform, we
+                search the best matching video on YouTube, and download the
+                track using
+                <b>yt-dlp</b> in the .mp3 format<br />
+                Based on the older Python script, but now with friendly user
+                interface, and a lot more options.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <button
+    id="reenable-effects-button"
+    class="hidden glass-surface no-blur no-shadows"
+  >
+    Re-enable all effects
+  </button>
+</main>
+
+{{ include('@components/homepage/dialogs/frontend.twig', {id: 'frontend-more'}) }}
+
+{{ include('@components/homepage/dialogs/bamboo.twig', {id: 'bamboo-more'}) }}
+
+{% endblock %}

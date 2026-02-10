@@ -1,19 +1,10 @@
----
-title: "From installing Tailscale and closing out ports to rethinking server infrastructure"
-tags:
-  - selfhosting
-  - vpn
-  - autism
-date: 2025-02-19
----
-
 > **TL;DR**
 >
 > I messed up the configuration of my servers and got myself locked out of one of two VPS-es, wasn't able to regain access, and in the end decided to reinstall everything.
 
 # What's the story about
 
-It is about home servers (mine are not exactly "at home", but well...), self-hosting and reinstalling.  
+It is about home servers (mine are not exactly "at home", but well...), self-hosting and reinstalling.
 There is not gonna be a moral at the end, this is just a story that I wanted to share.
 That's what blogs are about in the end, yeah?
 
@@ -28,7 +19,7 @@ I created two servers:
 - AMD compute instance - AMD EPYC with one core and 1GB of ram running Arch Linux.
 
 On the first one I ran kinds of stuff - minecraft servers, LLMs, [invidious](https://invidious.io/),
-[Syncthing](https://syncthing.net/), etc.  
+[Syncthing](https://syncthing.net/), etc.
 The latter is much smaller in terms of specs, and it ran simpler things like HTTP servers,
 [vaultwarden](https://github.com/dani-garcia/vaultwarden) and [forgejo](https://forgejo.org/).
 
@@ -38,9 +29,9 @@ VPNs are nice. Tailscale is especially nice. I won't explain how it works here, 
 guys at tailscale [already did it](https://tailscale.com/blog/how-tailscale-works).
 
 I decided to set it up on my servers too. Because I really like self-hosting as much as possible,
-I discovered [headscale](https://headscale.net/).  
+I discovered [headscale](https://headscale.net/).
 Tailscale itself establishes a peer-to-peer connection between every node, but it still has a
-central server which does authentication and key exchange. That's the part where headscale is used.  
+central server which does authentication and key exchange. That's the part where headscale is used.
 Instead of pointing your tailscale client to official tailscale control server, you pass your own instance.
 
 The setup went fairly smoothly, I didn't have to pass around any WireGuard keys as I would have to,
@@ -49,7 +40,7 @@ if I would do a manual WG setup.
 I tested things out, everything worked perfectly. I also set up IPv6 for my servers, because IPv6 is cool!
 
 At this point, I thought of a thing: I always have a direct tunnel to my server, then why do I need
-to have open ports for ssh? I can just log in through my server's tailscale local IP.  
+to have open ports for ssh? I can just log in through my server's tailscale local IP.
 The security benefits of this are, of course, very dubious, but why not.
 
 # "The hardening"
@@ -95,7 +86,7 @@ You see, although this VPS is much smaller on resources, it hosts one important 
 All my password are stored here.
 
 It was 1AM. Although vaultwarden still worked, and I could use it, I had a little panic attack,
-and in attempt to fix the server I powered it off and detached the boot volume.  
+and in attempt to fix the server I powered it off and detached the boot volume.
 I wanted to attach it to my main VPS, which I had access to, from there edit the SSH configuration
 to use the port 10100 instead, and attach the boot volume back to the VPS it belonged to.
 
@@ -112,7 +103,7 @@ was able to attach the volume to my Ubuntu VPS. I fixed the SSH config, detached
 this was it.
 
 Now, I have to transfer the volume to another availability domain, and for that I again created
-a backup of it and restored it in the availability domain of my Arch VPS.  
+a backup of it and restored it in the availability domain of my Arch VPS.
 But I couldn't attach the boot volume again. The "Replace boot volume" button was inactive, and the
 instance still had that boot volume attached, which I deleted.
 

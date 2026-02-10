@@ -1,0 +1,15 @@
+{% extends '@layouts/base.twig' %}
+
+{% from '@components/article-card.twig' import articleCard %}
+
+{% block body %}
+  <div id="article-content-wrapper">
+    <main id="article" class="no-link-coloring">
+      <h1>Article List</h1>
+
+      {% for article in articles %}
+        {{ articleCard(article.getUrl(), article.title, article.publishDate) }}
+      {% endfor %}
+    </main>
+  </div>
+{% endblock %}

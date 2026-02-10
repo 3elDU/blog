@@ -2,21 +2,18 @@
   "name": "blog",
   "type": "module",
   "private": true,
-  "main": "index.js",
   "author": "petafloppa",
   "scripts": {
-    "dev": "concurrently 'eleventy --watch' 'wrangler dev -c workers/blog/wrangler.jsonc'",
-    "build": "eleventy",
+    "dev": "concurrently 'WATCH=1 node bundle.js' 'DEVELOPMENT=1 php -S localhost:8787 -t public'",
+    "build": "webpack",
     "types": "wrangler types --cwd workers/blog && wrangler types --cwd workers/redir",
     "deploy": "wrangler deploy -c workers/blog/wrangler.jsonc",
     "deploy-redir": " && wrangler deploy -c workers/redir/wrangler.jsonc"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "@11ty/eleventy-plugin-rss": "^2.0.4",
     "concurrently": "^9.2.0",
     "esbuild": "^0.27.2",
-    "lightningcss": "^1.29.1",
+    "esbuild-loader": "^4.4.2",
     "typescript": "^5.8.3",
     "wrangler": "^4.24.0"
   },

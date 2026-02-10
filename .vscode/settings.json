@@ -1,7 +1,6 @@
 {
   "files.associations": { "*.njk": "jinja-html" },
-  "emmet.includeLanguages": { "jinja-html": "html" },
-  "[typescript]": {
-    "editor.indentSize": 2
-  }
+  "emmet.includeLanguages": { "jinja-html": "html", "twig": "twig" },
+  "twiggy.framework": "twig",
+  "twiggy.vanillaTwigEnvironmentPath": "env.php"
 }

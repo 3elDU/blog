@@ -1,0 +1,31 @@
+{% extends '@layouts/base.twig' %}
+
+{% block title %}
+  404 Not Found
+{% endblock %}
+
+{% block extraHead %}
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    #centered {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: var(--size-sm);
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div id="centered">
+    <h1 id="title">The requested page was not found</h1>
+    {{ include('@components/footer.twig') }}
+  </div>
+{% endblock %}
+
+{% block footer null %}

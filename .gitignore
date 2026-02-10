@@ -1,3 +1,14 @@
+# NPM dependencies
 node_modules
-dist
+
+# Bundled Web assets
+/public/dist
+
+# Cloudflare wrangler state & cache
 .wrangler
+
+# Composer dependencies
+/vendor/
+
+# Twig template cache
+/templates/.cache

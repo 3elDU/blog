@@ -1,0 +1,52 @@
+{% extends '@layouts/base.twig' %}
+
+{% block extraHead %}
+<script src="/dist/scripts/read-button.js" async="true" defer></script>
+{% endblock %}
+
+{% block body %}
+<div id="article-content-wrapper">
+  <main id="article">
+    <section id="article-heading">
+      <h2 class="article-title">{{ article.title }}</h2>
+      <p class="article-sub">
+        Written on
+        <date datetime="{{ article.publishDate }}">
+          {# e.g. "February 2026" #}
+          {{ article.publishDate.format('F Y') }}
+        </date>
+      </p>
+      <p class="article-tags">
+        {% for tag in article.tags %}
+        <span class="article-tag">
+          {{ tag }}
+        </span>
+        {% endfor %}
+      </p>
+    </section>
+    {{ renderedMarkdown|raw }}
+    {#
+    <hr>
+    <section id="article-reactions">
+      <template class="template">
+        <div class="reaction">
+          <img class="icon" />
+        </div>
+        <div class="count"></div>
+      </template>
+      <ul class="strip">
+      </ul>
+    </section>
+    #}
+    <hr>
+    <section id="article-views">
+      <p id="article-views-paragraph">
+        <strong class="count"></strong> people have read this article.
+      </p>
+      <button class="view-button" disabled aria-controls="article-views-paragraph">
+        I've read this too!
+      </button>
+    </section>
+  </main>
+</div>
+{% endblock %}

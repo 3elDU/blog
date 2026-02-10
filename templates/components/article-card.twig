@@ -1,0 +1,13 @@
+{% macro articleCard(url, title, date) %}
+<article class="article-card">
+  <p>Article</p>
+
+  <div class="title-and-date">
+    <a href="{{ url }}">{{ title }}</a>
+
+    <time datetime="{{ date }}">
+      {{ date.format('F Y') }}
+    </time>
+  </div>
+</article>
+{% endmacro %}

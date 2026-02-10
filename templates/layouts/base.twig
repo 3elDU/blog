@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/dist/styles/index.css" />
+    <link rel="stylesheet" href="/dist/styles/fonts/subfont.css" />
+
+    {% if not page.dev %}
+    <script src="https://stat.petafloppa.cc/stat.js" async></script>
+    {% endif %}
+
+    {% block extraHead %}{% endblock %}
+
+    <meta name="author" content="Zakhar Voloshchuk (petafloppa)" />
+    <meta name="description" content="petafloppa's blog website" />
+
+    <title>{% block title %}petafloppa's blog{% endblock %}</title>
+  </head>
+  <body>
+    {% block navbar %}
+    {{ include('@components/navbar.twig', {glassNavbar: false}) }}
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block footer %}
+    {% include "@components/footer.twig" %}
+    {% endblock %}
+  </body>
+</html>
