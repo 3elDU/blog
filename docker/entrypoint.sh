@@ -6,5 +6,5 @@ chown -R www-data:www-data /data
 php-fpm -R &
 caddy run --environ --config /etc/caddy/Caddyfile &
 
-trap 'kill -TERM $(jobs -p); wait' SIGTERM SIGINT
+trap 'kill -TERM $(jobs -p); wait' SIGTERM SIGINT SIGQUIT
 wait
