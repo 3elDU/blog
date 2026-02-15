@@ -16,7 +16,7 @@ $loader->addPath('templates/pages-internal', 'pages-internal');
 
 $twig = new Twig\Environment($loader, [
     'debug' => true,
-    'cache' => $rootDir . 'templates/.cache',
+    'cache' => getenv('TWIG_TEMPLATE_CACHE') ?: $rootPath . '/.cache',
     'strict_variables' => true
 ]);
 

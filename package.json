@@ -5,7 +5,7 @@
   "author": "petafloppa",
   "scripts": {
     "dev": "concurrently 'WATCH=1 node bundle.js' 'DEVELOPMENT=1 KV_ROOT=../kv php -S localhost:8787 -t public'",
-    "build": "webpack",
+    "build": "node bundle.js",
     "types": "wrangler types --cwd workers/blog && wrangler types --cwd workers/redir",
     "deploy": "wrangler deploy -c workers/blog/wrangler.jsonc",
     "deploy-redir": " && wrangler deploy -c workers/redir/wrangler.jsonc"
@@ -14,11 +14,9 @@
     "concurrently": "^9.2.0",
     "esbuild": "^0.27.2",
     "esbuild-loader": "^4.4.2",
-    "typescript": "^5.8.3",
-    "wrangler": "^4.24.0"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "cookie": "^1.0.2",
-    "hono": "^4.8"
+    "cookie": "^1.0.2"
   }
 }
