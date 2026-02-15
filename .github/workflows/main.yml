@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_image_job:
+    runs-on: ubuntu-latest
+    name: Build container image and publishes it
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build and publish a Docker image for ${{ github.repository }}
+        uses: macbre/push-to-ghcr@v16
+        with:
+          image_name: ${{ github.repository }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          dockerfile: ./docker/Dockerfile
