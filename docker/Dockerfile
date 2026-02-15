@@ -1,7 +1,7 @@
 FROM alpine:latest AS builder
 
 WORKDIR /app
-COPY --exclude=docker --exclude=vendor --exclude=node_modules --exclude=.git --exclude=.vscode --exclude=.* . .
+COPY . .
 
 RUN apk add npm composer
 
@@ -11,7 +11,7 @@ RUN composer install --no-dev --ignore-platform-reqs -o
 RUN npm run build
 
 # Clean out files
-RUN rm -rf node_modules
+RUN rm -rf node_modules styles scripts
 
 FROM php:8.5-fpm AS runner
 

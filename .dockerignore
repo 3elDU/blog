@@ -1,0 +1,7 @@
+node_modules
+vendor
+workers
+.vscode
+.github
+.editorconfig
+tsconfig.json
