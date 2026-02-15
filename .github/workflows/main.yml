@@ -16,3 +16,4 @@ jobs:
           image_name: ${{ github.repository }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: ./docker/Dockerfile
+          context: ./docker
