@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\RouteHandler;
+use App\Routing\Handlers\RouteHandler;
 
 class NotFoundController implements RouteHandler
 {

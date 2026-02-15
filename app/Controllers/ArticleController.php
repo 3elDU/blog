@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-use App\RouteHandler;
 use App\Models\Article;
 use App\Helpers\UrlHelper;
 use App\Exceptions\NotFoundException;
+use App\Routing\Handlers\RouteHandler;
 use App\Repositories\ArticleRepository;
 use League\CommonMark\CommonMarkConverter;
 

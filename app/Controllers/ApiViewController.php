@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\RouteHandler;
 use App\Helpers\UrlHelper;
+use App\Routing\Handlers\RouteHandler;
 
 class ApiViewController implements RouteHandler
 {

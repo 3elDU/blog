@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\RouteHandler;
 use Twig\Error\LoaderError;
 use App\Exceptions\NotFoundException;
+use App\Routing\Handlers\RouteHandler;
 
 /**
  * Tries to load template for the page from url
@@ -15,14 +15,22 @@ class PageController implements RouteHandler
 
     public function handle(string $path): void
     {
-        // Replace trailing slash
-        $path = preg_replace('/\/$/', '/index', $path);
-        // Replace extension
-        $path = preg_replace('/\..*$/', '', $path);
+        $tryFiles = [
+            // no slash after @pages because the path starts with a slash
+            "@pages$path/index.twig",
+            "@pages$path.twig",
+        ];
 
-        try {
-            $template = $this->twig->load('@pages' . $path . '.twig');
-        } catch (LoaderError) {
+        foreach ($tryFiles as $templatePath) {
+            try {
+                $template = $this->twig->load($templatePath);
+                break;
+            } catch (LoaderError) {
+                continue;
+            }
+        }
+
+        if (empty($template)) {
             throw new NotFoundException();
         }
 

@@ -1,41 +1,51 @@
 <?php
 
-namespace App;
+namespace App\Routing;
 
 use Throwable;
 use App\Exceptions\HttpException;
 use App\Exceptions\NotFoundException;
+use App\Routing\Handlers\RouteHandler;
 use App\Exceptions\InternalServerError;
+use App\Routing\Handlers\ExceptionHandler;
 
-interface RouteHandler
-{
-    public function handle(string $path): void;
-}
-
-interface ExceptionHandler
-{
-    public function handle(Throwable $e): void;
-}
-
+/**
+ * Chooses the appropriate handler based on the provided request url.
+ * Trailing slashes are removed automatically.
+ */
 class Router
 {
-    /** @var array<string, RouteHandler> */
+    /**
+     * Handlers to be called when the url starts with a prefix
+     *
+     * @var array<string, RouteHandler> associative array with the prefix as a
+     * key, and handler as the value
+     */
     private array $prefixes = [];
 
     /**
      * Handlers to be called when (in order) when no route was matched.
      * Iteration stops at the first one that doesn't throw.
      *
-     * @var array<RouteHandler>
+     * @var RouteHandler[]
      */
     public array $fallbackHandlers = [];
 
     /**
      * Handles to be called for specific exception types
      *
-     * @var array<string, RouteHandler>
+     * @var ExceptionHandler[]
      */
     public array $exceptionHandlers = [];
+
+    /**
+     * A list of url transformers to be called in sequence.
+     * If the resulting URL is different from the original one, client is
+     * given a permanent redirect.
+     *
+     * @var Redirector[]
+     */
+    public array $urlTransformers = [];
 
     public function __construct(private string $requestUrl) {}
 
@@ -49,11 +59,19 @@ class Router
     }
 
     /**
-     * Assignes a handler for a specific prefix
+     * Assigns a handler for a specific prefix
      */
     public function addPrefixHandler(string $prefix, RouteHandler $handler)
     {
         $this->prefixes[$prefix] = $handler;
+    }
+
+    /**
+     * Adds a url transformer to handle redirects
+     */
+    public function addRedirector(Redirector $redirector)
+    {
+        $this->urlTransformers[] = $redirector;
     }
 
     public function addExceptionHandler(string $exceptionType, RouteHandler $handler)
@@ -101,6 +119,20 @@ class Router
 
     public function run()
     {
+        // First, handle redirects
+        $targetUrl = $this->requestUrl;
+        foreach ($this->urlTransformers as $redirector) {
+            $url = $redirector->redirect($targetUrl);
+            if (!is_null($url)) {
+                $targetUrl = $url;
+            }
+        }
+
+        if ($this->requestUrl != $targetUrl) {
+            header("Location: $targetUrl", response_code: 301);
+            return;
+        }
+
         foreach ($this->prefixes as $prefix => $handler) {
             if (str_starts_with($this->requestUrl, $prefix)) {
                 if (!$this->tryCallHandler($handler)) {
