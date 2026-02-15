@@ -4,7 +4,7 @@
   "private": true,
   "author": "petafloppa",
   "scripts": {
-    "dev": "concurrently 'WATCH=1 node bundle.js' 'DEVELOPMENT=1 php -S localhost:8787 -t public'",
+    "dev": "concurrently 'WATCH=1 node bundle.js' 'DEVELOPMENT=1 KV_ROOT=../kv php -S localhost:8787 -t public'",
     "build": "webpack",
     "types": "wrangler types --cwd workers/blog && wrangler types --cwd workers/redir",
     "deploy": "wrangler deploy -c workers/blog/wrangler.jsonc",

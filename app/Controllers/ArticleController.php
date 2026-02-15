@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Article;
+use App\Persistence\KV;
 use App\Helpers\UrlHelper;
 use App\Exceptions\NotFoundException;
 use App\Routing\Handlers\RouteHandler;
@@ -16,7 +17,7 @@ class ArticleController implements RouteHandler
 {
     public function __construct(
         private \Twig\Environment $twig,
-        private ArticleRepository $repo
+        private ArticleRepository $repo,
     ) {}
 
     /**

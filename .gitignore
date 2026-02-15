@@ -12,3 +12,6 @@ node_modules
 
 # Twig template cache
 /templates/.cache
+
+# development-only kv store
+kv
