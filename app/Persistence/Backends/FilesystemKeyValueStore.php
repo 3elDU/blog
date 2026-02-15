@@ -13,7 +13,9 @@ class FilesystemKeyValueStore implements KV
     public function __construct(
         private string $root
     ) {
-        mkdir($this->root, recursive: true);
+        if (!file_exists($this->root)) {
+            mkdir($this->root, recursive: true);
+        }
     }
 
     private function keyToPath(string $key): string
@@ -23,7 +25,11 @@ class FilesystemKeyValueStore implements KV
 
     public function get(string $key): ?string
     {
-        $contents = file_get_contents($this->keyToPath($key));
+        $path = $this->keyToPath($key);
+
+        if (!file_exists($path)) return null;
+
+        $contents = file_get_contents($path);
         if ($contents === false) {
             return null;
         }
