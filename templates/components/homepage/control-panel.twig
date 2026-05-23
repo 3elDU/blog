@@ -1,56 +1,58 @@
-<expandable-pane
-  id="control-panel"
-  class="glass-surface"
-  aria-label="Control panel"
-  aria-controls="canvas"
-  data-open="true"
->
-  <div slot="closed-content" class="closed-content">
-    <button id="control-panel-open" title="Open control panel">
-      {{ include("@components/icons/settings.twig") }}
-    </button>
-  </div>
-
-  <div slot="open-content" class="open-content">
-    <h2>Configure gradient</h2>
-    <div class="corners glass-surface no-blur" title="Customize gradient effect">
-      <div class="color-buttons">
-        <div class="styled-color-input corner l" data-idx="0" title="Left side"></div>
-        <div class="styled-color-input corner r" data-idx="1" title="Right side"></div>
-        <div class="styled-color-input corner t" data-idx="2" title="Top side"></div>
-        <div class="styled-color-input corner b" data-idx="3" title="Bottom side"></div>
-      </div>
-
-      <div class="color-selector">
-        <grid-color-selector columns="5" button-size="48px"></grid-color-selector>
-      </div>
+<div id="control-panel-container">
+  <expandable-pane
+    id="control-panel"
+    class="glass-surface"
+    aria-label="Control panel"
+    aria-controls="canvas"
+    data-open="true"
+  >
+    <div slot="closed-content" class="closed-content">
+      <button id="control-panel-open" title="Open control panel">
+        {{ include("@components/icons/settings.twig") }}
+      </button>
     </div>
 
-    <section>
-      <label for="ctrl-fps">
-        FPS
-      </label>
-      <styled-range-input id="ctrl-fps" min="1" max="60" value="30" step="1"></styled-range-input>
-      <label for="ctrl-fps" class="subtitle">
-        <span>Lower</span>
-        <span>Higher</span>
-      </label>
-    </section>
+    <div slot="open-content" class="open-content">
+      <h2>Configure gradient</h2>
+      <div class="corners glass-surface no-blur" title="Customize gradient effect">
+        <div class="color-buttons">
+          <div class="styled-color-input corner l" data-idx="0" title="Left side"></div>
+          <div class="styled-color-input corner r" data-idx="1" title="Right side"></div>
+          <div class="styled-color-input corner t" data-idx="2" title="Top side"></div>
+          <div class="styled-color-input corner b" data-idx="3" title="Bottom side"></div>
+        </div>
 
-    <section>
-      <label for="ctrl-resolution">
-        Pixel Size
-      </label>
-      <styled-range-input id="ctrl-resolution" min="8" max="128" value="64" step="2"></styled-range-input>
-      <label for="ctrl-resolution" class="subtitle">
-        <span>Smaller</span>
-        <span>Bigger</span>
-      </label>
-    </section>
+        <div class="color-selector">
+          <grid-color-selector columns="5" button-size="48px"></grid-color-selector>
+        </div>
+      </div>
 
-    <div id="control-panel-actions">
-      <button class="button reset glass-surface no-blur">Reset</button>
-      <button class="button close glass-surface no-blur">Close</button>
+      <section>
+        <label for="ctrl-fps">
+          FPS
+        </label>
+        <styled-range-input id="ctrl-fps" min="1" max="60" value="30" step="1"></styled-range-input>
+        <label for="ctrl-fps" class="subtitle">
+          <span>Lower</span>
+          <span>Higher</span>
+        </label>
+      </section>
+
+      <section>
+        <label for="ctrl-resolution">
+          Pixel Size
+        </label>
+        <styled-range-input id="ctrl-resolution" min="8" max="128" value="64" step="2"></styled-range-input>
+        <label for="ctrl-resolution" class="subtitle">
+          <span>Smaller</span>
+          <span>Bigger</span>
+        </label>
+      </section>
+
+      <div id="control-panel-actions">
+        <button class="button reset glass-surface no-blur">Reset</button>
+        <button class="button close glass-surface no-blur">Close</button>
+      </div>
     </div>
-  </div>
-</expandable-pane>
+  </expandable-pane>
+</div>

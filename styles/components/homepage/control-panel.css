@@ -1,12 +1,14 @@
-#control-panel {
-  padding: var(--size-md);
-  border-radius: var(--size-md);
-
-  overflow: hidden;
+#control-panel-container {
   position: absolute;
   z-index: 10;
   right: var(--size-md);
   bottom: var(--size-md);
+}
+
+#control-panel {
+  overflow: hidden;
+  padding: var(--size-md);
+  border-radius: var(--size-md);
 
   display: flex;
   flex-direction: column;
@@ -16,9 +18,16 @@
     height: 24px;
   }
   & > .open-content {
+    width: 320px;
     display: flex;
     flex-direction: column;
     gap: var(--size-sm);
+  }
+}
+
+@media (max-width: 640px) {
+  #control-panel .open-content {
+    width: calc(100vw - 64px);
   }
 }
 
