@@ -1,4 +1,8 @@
 :root {
+  --duration-fast: 133ms;
+  --duration-medium: 267ms;
+  --duration-slow: 400ms;
+
   --transition-fast: 133ms ease-in-out;
   --transition-medium: 267ms ease-in-out;
   --transition-slow: 400ms ease-in-out;
@@ -6,6 +10,10 @@
 
 @media (prefers-reduced-motion) {
   :root {
+    --duration-fast: 0ms;
+    --duration-medium: 0ms;
+    --duration-slow: 0ms;
+
     --transition-fast: 0ms;
     --transition-medium: 0ms;
     --transition-slow: 0ms;

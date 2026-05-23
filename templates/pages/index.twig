@@ -2,7 +2,7 @@
 
 {% block extraHead %}
   <link rel="stylesheet" href="/dist/styles/pages/homepage.css" />
-  <script src="/dist/scripts/homepage/index.js" defer></script>
+  <script src="/dist/scripts/homepage/entrypoint.js" defer></script>
 {% endblock %}
 
 {% block navbar null %}
@@ -17,6 +17,7 @@
 
 <div id="heading-stack">
   {{ include('@components/navbar.twig', {glassNavbar: true}) }}
+  {{ include('@components/homepage/control-panel.twig') }}
 
   <header class="heading-wrapper">
     <div class="heading">

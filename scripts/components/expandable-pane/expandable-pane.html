@@ -1,0 +1,37 @@
+<style>
+  #panel[data-open="false"] {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+
+    & > #closed-content {
+      display: block;
+    }
+    & > #open-content {
+      display: none;
+    }
+  }
+  #panel[data-open="true"] {
+    width: 320px;
+
+    & > #closed-content {
+      display: none;
+    }
+    & > #open-content {
+      display: block;
+    }
+  }
+
+  #closed-content {
+    transition: opacity var(--transition-slow);
+  }
+
+  #open-content {
+    transition: opacity var(--transition-slow);
+  }
+</style>
+
+<section id="panel" data-open="false">
+  <slot name="closed-content" id="closed-content"></slot>
+  <slot name="open-content" id="open-content"></slot>
+</section>

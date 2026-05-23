@@ -1,0 +1,11 @@
+.button {
+  transition:
+    transform var(--duration-fast),
+    background var(--duration-slow);
+
+  &:hover,
+  &:active {
+    transform: scale(1.05);
+    --glass-opaque: 0.8;
+  }
+}

@@ -15,8 +15,8 @@
   --glass-dark-shadow: rgba(0, 0, 0, 30%);
 
   /** Reusable glass box shadow */
-  --glass-box-shadow: /* Dark shadow behind the element */ 0 0 2px
-      rgba(0, 0, 0, 25%),
+  --glass-box-shadow: /* Dark shadow behind the element */
+    0 0 2px rgba(0, 0, 0, 25%),
     /* Dark shadow with more spread */ 0 0 8px rgba(0, 0, 0, 30%),
     /* Inset light shadow */ 0 0 4px var(--glass-light-shadow) inset;
 

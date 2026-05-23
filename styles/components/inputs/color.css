@@ -1,0 +1,32 @@
+.styled-color-input {
+  position: relative;
+  width: 64px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 4px;
+  background: var(--elevation-low-rgb);
+
+  &::after {
+    transition: background var(--transition-medium);
+
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--input-selected-color);
+    box-shadow:
+      0 0 2px rgba(0, 0, 0, 25%),
+      0 0 8px rgba(0, 0, 0, 30%);
+  }
+
+  & > .real {
+    opacity: 0;
+    z-index: 1;
+
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

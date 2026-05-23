@@ -11,8 +11,12 @@
     "skipLibCheck": true,
     "composite": true,
     "allowJs": true,
+
     // doesn't do anything because files are emitted by the bundler
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@styles/*": ["./styles/*"]
+    }
   },
-  "include": ["./scripts/**/*"]
+  "include": ["./scripts/**/*", "./styles/**/*"]
 }

@@ -1,3 +1,5 @@
+@import "../components/homepage/control-panel.css" layer(components);
+
 @layer fonts {
   @font-face {
     font-family: "Chakra Petch";
@@ -76,7 +78,11 @@
         justify-content: center;
         align-items: center;
 
-        text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+        text-shadow:
+          -1px 0 white,
+          0 1px white,
+          1px 0 white,
+          0 -1px white;
         line-height: 1;
 
         & > .title {

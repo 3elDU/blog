@@ -1,0 +1,28 @@
+<div class="grid-container">
+  <div class="color-grid"></div>
+</div>
+
+<template id="color-button-template"><button class="color"></button></template>
+
+<style>
+  .grid-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--size));
+    gap: calc(var(--size) / 8);
+  }
+
+  .color {
+    border: none;
+    border-radius: 9999px;
+    width: var(--size);
+    height: var(--size);
+    background: var(--color);
+    border: 1px solid color-mix(in srgb, var(--color) 70%, black 50%);
+  }
+</style>

@@ -5,10 +5,6 @@ interface Transformation {
   scaleY: number;
 }
 
-const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: true)"
-);
-
 class DialogAnimation {
   private trigger: HTMLElement;
   private target: HTMLDialogElement;
@@ -109,7 +105,7 @@ class DialogAnimation {
               opacity: 0,
             },
           ],
-      this.opts
+      this.opts,
     );
     const dialogAnim = this.target.animate(
       this.lowPerf
@@ -122,7 +118,7 @@ class DialogAnimation {
             },
             { opacity: 1.0 },
           ],
-      this.opts
+      this.opts,
     );
     const backdropAnim = this.backdrop.animate(
       this.lowPerf
@@ -136,7 +132,7 @@ class DialogAnimation {
               opacity: 1,
             },
           ],
-      this.opts
+      this.opts,
     );
 
     try {
@@ -167,7 +163,7 @@ class DialogAnimation {
 
     const backdropAnim = this.backdrop!.animate(
       [{ opacity: 1 }, { opacity: 0 }],
-      this.reverseOpts
+      this.reverseOpts,
     );
     const targetAnim = this.target.animate(
       this.lowPerf
@@ -179,7 +175,7 @@ class DialogAnimation {
               opacity: 0,
             },
           ],
-      this.reverseOpts
+      this.reverseOpts,
     );
     const triggerAnim = this.trigger.animate(
       this.lowPerf
@@ -193,7 +189,7 @@ class DialogAnimation {
               opacity: 1,
             },
           ],
-      this.reverseOpts
+      this.reverseOpts,
     );
 
     await Promise.all([
@@ -211,7 +207,7 @@ class DialogAnimation {
 }
 
 const elementsWithDialogs = document.querySelectorAll<HTMLElement>(
-  '[data-toggle="dialog"]'
+  '[data-toggle="dialog"]',
 );
 
 const animations = [];

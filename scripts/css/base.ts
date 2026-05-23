@@ -1,3 +1,5 @@
+const base = new CSSStyleSheet();
+base.replaceSync(`
 html {
   box-sizing: border-box;
 }
@@ -12,17 +14,6 @@ html {
   outline: none;
   color: inherit;
   fill: currentColor;
-}
+}`);
 
-html {
-  height: 100%;
-}
-
-body {
-  width: 100%;
-  height: 100%;
-}
-
-ul {
-  list-style: none;
-}
+export default base;

@@ -1,14 +1,18 @@
 // Interpolate between two values
-function lerp(x, y, t) {
+function lerp(x: number, y: number, t: number) {
   return x * (1 - t) + y * t;
 }
 
 // Interpolate between two RGB colors
-export function lerpColor([r1, g1, b1], [r2, g2, b2], percent) {
+export function lerpColor(
+  [r1, g1, b1]: [number, number, number],
+  [r2, g2, b2]: [number, number, number],
+  percent: number,
+): [number, number, number] {
   return [lerp(r1, r2, percent), lerp(g1, g2, percent), lerp(b1, b2, percent)];
 }
 
-export function randomColor() {
+export function randomColor(): [number, number, number] {
   return [
     Math.floor(Math.random() * 255),
     Math.floor(Math.random() * 255),
@@ -16,7 +20,7 @@ export function randomColor() {
   ];
 }
 
-export function shuffle(array) {
+export function shuffle<T>(array: Array<T>) {
   let currentIndex = array.length,
     randomIndex;
 

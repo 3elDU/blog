@@ -1,0 +1,7 @@
+label {
+  &.subtitle {
+    font-size: smaller;
+    display: flex;
+    justify-content: space-between;
+  }
+}
