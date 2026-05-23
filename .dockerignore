@@ -4,4 +4,3 @@ workers
 .vscode
 .github
 .editorconfig
-tsconfig.json
