@@ -4,7 +4,7 @@
     background var(--duration-slow);
 
   &:hover,
-  &:active {
+  &:focus-visible {
     transform: scale(1.05);
     --glass-opaque: 0.8;
   }
